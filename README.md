@@ -4,7 +4,7 @@
 
 [![Website](https://img.shields.io/badge/website-valqore.io-blue)](https://www.valqore.io)
 [![Image](https://img.shields.io/badge/ghcr.io-valqore%2Fengine-2496ED?logo=docker)](https://github.com/orgs/valqore/packages/container/package/engine)
-[![Rules](https://img.shields.io/badge/rules-1,379-brightgreen)]()
+[![Rules](https://img.shields.io/badge/rules-1,381-brightgreen)]()
 [![Compliance Packs](https://img.shields.io/badge/compliance%20packs-18-blueviolet)]()
 [![Blog](https://img.shields.io/badge/blog-blog.valqore.io-black)](https://blog.valqore.io)
 
@@ -12,7 +12,7 @@
 
 Valqore is an infrastructure governance engine that scans Kubernetes manifests, Terraform configurations, and cloud resources — then returns a **score (0-100)** and a **verdict** (PASS, PASS_WITH_MONITORING, or BLOCK).
 
-**1,379 built-in rules** across security, cost, **carbon/sustainability (GreenOps)**, compliance, and AI governance, organised into **18 compliance packs** (including OWASP Top 10 for Agentic Applications 2026, EU AI Act Annex III, CRA, DORA, SOC2, HIPAA, FedRAMP, SR 11-7, and PQC Migration / CNSA 2.0). No configuration needed. Runs anywhere Docker runs.
+**1,381 built-in rules** across security, cost, **carbon/sustainability (GreenOps)**, compliance, and AI governance, organised into **19 compliance packs** (including OWASP Top 10 for Agentic Applications 2026, EU AI Act Annex III, CRA, DORA, SOC2, HIPAA, FedRAMP, SR 11-7, and PQC Migration / CNSA 2.0). No configuration needed. Runs anywhere Docker runs.
 
 ---
 
@@ -104,7 +104,7 @@ with an SBOM**.
 
 | Image | Distribution | What's included |
 |-------|------|-------------|
-| `ghcr.io/valqore/engine:latest` | **Free, public, tokenless** | All 1,379 rules, scoring, drift, billing, compliance, MCP, agent-gate |
+| `ghcr.io/valqore/engine:latest` | **Free, public, tokenless** | All 1,381 rules, scoring, drift, billing, compliance, MCP, agent-gate |
 | `ghcr.io/valqore/engine-ai:1.12.1` | **Licensed** ([request access](mailto:tunc@valqore.io)) | Everything above + embedded offline AI model (AI scan, chat) |
 
 Only the AI features need a license. To activate the AI image, create a persistent volume once,
@@ -121,13 +121,13 @@ docker run --rm -v valqore-data:/app/data ghcr.io/valqore/engine-ai:1.12.1 valqo
 
 Every published image is cryptographically signed and carries an SPDX SBOM, so you can prove exactly what you're running. Install [cosign](https://docs.sigstore.dev/cosign/system_config/installation/), then:
 
-**Public image** (`ghcr.io/valqore/engine:1.12.1`) — keyless-signed in CI via Sigstore (GitHub OIDC + Rekor):
+**Public image** (`ghcr.io/valqore/engine:1.13.0`) — keyless-signed in CI via Sigstore (GitHub OIDC + Rekor):
 
 ```bash
-cosign verify ghcr.io/valqore/engine:1.12.1 \
+cosign verify ghcr.io/valqore/engine:1.13.0 \
   --certificate-identity-regexp 'https://github.com/valqore/valqore-engine/.*' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
-cosign verify-attestation ghcr.io/valqore/engine:1.12.1 --type spdxjson \
+cosign verify-attestation ghcr.io/valqore/engine:1.13.0 --type spdxjson \
   --certificate-identity-regexp 'https://github.com/valqore/valqore-engine/.*' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```
