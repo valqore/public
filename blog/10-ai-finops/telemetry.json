@@ -1,0 +1,5 @@
+{
+  "research-agent": { "input_tokens": 520000, "output_tokens": 95000, "calls": 5200 },
+  "support-bot":    { "input_tokens": 60000,  "output_tokens": 190000, "calls": 14000 },
+  "summarizer":     { "input_tokens": 300000, "output_tokens": 15000, "calls": 8000 }
+}

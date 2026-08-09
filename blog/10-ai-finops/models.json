@@ -1,0 +1,5 @@
+{
+  "research-agent": { "model": "gpt-4o", "team": "ml-platform" },
+  "support-bot":    { "model": "gpt-4o", "team": "support" },
+  "summarizer":     { "model": "gpt-4o", "team": "data" }
+}
