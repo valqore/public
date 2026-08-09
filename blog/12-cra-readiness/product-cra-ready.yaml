@@ -1,0 +1,27 @@
+# Same product, now with the CRA facts declared as annotations.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smart-thermostat-api
+  annotations:
+    valqore.io/security-contact: "security@acme.example (PGP: https://acme.example/pgp)"
+    valqore.io/cvd-policy: "https://acme.example/security/disclosure"
+    valqore.io/responsible-entity: "Acme Devices GmbH, Berlin, DE"
+    valqore.io/sbom-url: "https://acme.example/sbom/thermostat-api-2.4.1.spdx.json"
+    valqore.io/support-window: "2029-12-31"
+    valqore.io/cra-conformity: "self-assessment"
+    valqore.io/cra-secure-defaults: "true"
+    valqore.io/cra-update-mechanism: "signed-ota"
+    valqore.io/cra-vuln-handling: "https://acme.example/security/vuln-process"
+spec:
+  replicas: 3
+  selector: { matchLabels: { app: thermostat } }
+  template:
+    metadata: { labels: { app: thermostat } }
+    spec:
+      containers:
+      - name: api
+        image: acme/thermostat-api:2.4.1
+        resources:
+          requests: { cpu: "200m", memory: "256Mi" }
+          limits:   { cpu: "500m", memory: "512Mi" }

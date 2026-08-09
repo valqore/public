@@ -1,0 +1,17 @@
+# A product with digital elements shipped to the EU — no CRA declarations.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smart-thermostat-api
+spec:
+  replicas: 3
+  selector: { matchLabels: { app: thermostat } }
+  template:
+    metadata: { labels: { app: thermostat } }
+    spec:
+      containers:
+      - name: api
+        image: acme/thermostat-api:2.4.1
+        resources:
+          requests: { cpu: "200m", memory: "256Mi" }
+          limits:   { cpu: "500m", memory: "512Mi" }
