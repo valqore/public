@@ -1,0 +1,18 @@
+{
+  "family": "payments",
+  "networkMode": "bridge",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "256",
+  "memory": "512",
+  "containerDefinitions": [
+    {
+      "name": "payments",
+      "image": "acme/payments-api:latest",
+      "privileged": true,
+      "user": "0",
+      "environment": [
+        { "name": "STRIPE_SECRET_KEY", "value": "sk_live_51H8xExampleDoNotUse" }
+      ]
+    }
+  ]
+}
