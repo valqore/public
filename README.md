@@ -105,14 +105,14 @@ with an SBOM**.
 | Image | Distribution | What's included |
 |-------|------|-------------|
 | `ghcr.io/valqore/engine:latest` | **Free, public, tokenless** | All 1,381 rules, scoring, drift, billing, compliance, MCP, agent-gate |
-| `ghcr.io/valqore/engine-ai:1.13.5` | **Licensed** ([request access](mailto:tunc@valqore.io)) | Everything above + embedded offline AI model (AI scan, chat) |
+| `ghcr.io/valqore/engine-ai:1.13.6` | **Licensed** ([request access](mailto:tunc@valqore.io)) | Everything above + embedded offline AI model (AI scan, chat) |
 
 Only the AI features need a license. To activate the AI image, create a persistent volume once,
 then activate:
 
 ```bash
 docker volume create valqore-data
-docker run --rm -v valqore-data:/app/data ghcr.io/valqore/engine-ai:1.13.5 valqore activate YOUR_LICENSE_KEY
+docker run --rm -v valqore-data:/app/data ghcr.io/valqore/engine-ai:1.13.6 valqore activate YOUR_LICENSE_KEY
 ```
 
 ---
@@ -132,10 +132,10 @@ cosign verify-attestation ghcr.io/valqore/engine:1.13.6 --type spdxjson \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```
 
-**AI image** (`ghcr.io/valqore/engine-ai:1.13.5`) — signed with Valqore's release key ([`cosign.pub`](cosign.pub)):
+**AI image** (`ghcr.io/valqore/engine-ai:1.13.6`) — signed with Valqore's release key ([`cosign.pub`](cosign.pub)):
 
 ```bash
-cosign verify --key cosign.pub --insecure-ignore-tlog ghcr.io/valqore/engine-ai:1.13.5
+cosign verify --key cosign.pub --insecure-ignore-tlog ghcr.io/valqore/engine-ai:1.13.6
 ```
 
 Both checks confirm the image hasn't been tampered with since publish. The SBOM (SPDX) enumerates every component in the image for vulnerability scanning and audit.
@@ -312,13 +312,13 @@ Shows what changed, when, and who changed it (via CloudTrail). Add `--watch --in
 
 ### AI image — offline scan & chat (licensed)
 
-The `ghcr.io/valqore/engine-ai:1.13.5` image bundles a fine-tuned model that runs **fully offline** — your code never leaves the container. [Request a license.](mailto:tunc@valqore.io)
+The `ghcr.io/valqore/engine-ai:1.13.6` image bundles a fine-tuned model that runs **fully offline** — your code never leaves the container. [Request a license.](mailto:tunc@valqore.io)
 
 **AI scan — evaluate + drift + plain-English explanation in one shot:**
 
 ```bash
 docker run --rm -v "$PWD:/work" -w /work -v valqore-data:/app/data \
-  ghcr.io/valqore/engine-ai:1.13.5 valqore ai-scan ./ --state terraform.tfstate --cloud aws
+  ghcr.io/valqore/engine-ai:1.13.6 valqore ai-scan ./ --state terraform.tfstate --cloud aws
 ```
 
 ```
@@ -339,7 +339,7 @@ Step 3/3: Generating AI analysis...
 
 ```bash
 docker run --rm -it -v "$PWD:/work" -w /work -v valqore-data:/app/data \
-  ghcr.io/valqore/engine-ai:1.13.5 valqore chat deploy.yaml
+  ghcr.io/valqore/engine-ai:1.13.6 valqore chat deploy.yaml
 ```
 
 ```
@@ -533,7 +533,7 @@ Full-stack app with K8s + Terraform — run `ai-scan` to get evaluate + drift + 
 ```bash
 # AI Scan — evaluates everything and explains findings (AI image)
 docker run --rm -v "$PWD:/work" -w /work -v valqore-data:/app/data \
-  ghcr.io/valqore/engine-ai:1.13.5 valqore ai-scan examples/ai-scan/
+  ghcr.io/valqore/engine-ai:1.13.6 valqore ai-scan examples/ai-scan/
 ```
 
 ### Chat Scenarios
@@ -548,7 +548,7 @@ Scan these files, then start a chat to ask questions — great for compliance-he
 ```bash
 # Scan first, then chat about findings (AI image)
 docker run --rm -it -v "$PWD:/work" -w /work -v valqore-data:/app/data \
-  ghcr.io/valqore/engine-ai:1.13.5 valqore chat examples/chat/healthcare-api.yaml
+  ghcr.io/valqore/engine-ai:1.13.6 valqore chat examples/chat/healthcare-api.yaml
 
 # Try asking:
 #   "Is this HIPAA compliant?"
