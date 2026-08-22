@@ -1,0 +1,13 @@
+# TEMP: action e2e test — introduces new findings on purpose.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: action-e2e-test
+  namespace: demo
+spec:
+  hostNetwork: true
+  containers:
+    - name: test
+      image: nginx:latest
+      securityContext:
+        privileged: true
