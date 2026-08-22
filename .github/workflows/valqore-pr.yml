@@ -1,0 +1,23 @@
+# Dogfood: the Valqore PR Verdict action, running on this repo's own PRs.
+# Any PR touching the examples gets a deterministic governance verdict as a
+# sticky comment + a reproducible evidence bundle artifact.
+name: Valqore PR Verdict
+on:
+  pull_request:
+    paths:
+      - "examples/**"
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  verdict:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./action
+        with:
+          # The examples are deliberately insecure teaching material — report,
+          # don't fail the check on them.
+          fail-on: never

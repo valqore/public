@@ -1,0 +1,235 @@
+name: "Valqore PR Verdict"
+description: >-
+  Deterministic governance verdict on every pull request. Scans only the IaC
+  files the PR changed (Terraform, Kubernetes YAML, Dockerfiles) with the
+  Valqore engine, posts a sticky comment with the score, verdict, and NEW
+  findings vs the base branch, and attaches a reproducible evidence bundle
+  anyone can re-run with `valqore verify`.
+author: "Valqore"
+branding:
+  icon: "shield"
+  color: "blue"
+
+inputs:
+  engine-version:
+    description: "ghcr.io/valqore/engine tag to scan with"
+    default: "1.13.7"
+  fail-on:
+    description: "When to fail the check: block (verdict BLOCK) or never"
+    default: "block"
+  comment:
+    description: "Post/update the sticky PR comment (true/false)"
+    default: "true"
+  evidence-bundle:
+    description: "Emit a reproducible evidence bundle and upload it as an artifact (true/false)"
+    default: "true"
+  compare-base:
+    description: "Also evaluate the base versions of the changed files and report the delta (true/false)"
+    default: "true"
+  paths:
+    description: "Optional extra filter — only consider changed files under these space-separated prefixes"
+    default: ""
+  github-token:
+    description: "Token for the PR comment"
+    default: ${{ github.token }}
+
+outputs:
+  verdict:
+    description: "PASS, PASS_WITH_MONITORING, or BLOCK (empty if no IaC changed)"
+    value: ${{ steps.head.outputs.verdict }}
+  score:
+    description: "Valqore Score 0-100 for the changed files"
+    value: ${{ steps.head.outputs.score }}
+  new-findings:
+    description: "Count of FAIL/WARN findings not present at the base ref"
+    value: ${{ steps.report.outputs.new_findings }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Collect changed IaC files
+      id: files
+      shell: bash
+      run: |
+        set -euo pipefail
+        BASE_SHA="${{ github.event.pull_request.base.sha }}"
+        HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+        if [ -z "$BASE_SHA" ]; then
+          echo "Not a pull_request event — nothing to diff."; echo "count=0" >> "$GITHUB_OUTPUT"; exit 0
+        fi
+        git fetch --no-tags --depth=1 origin "$BASE_SHA" 2>/dev/null || true
+        CHANGED=$(git diff --name-only --diff-filter=ACMR "$BASE_SHA"...HEAD 2>/dev/null \
+          || git diff --name-only --diff-filter=ACMR "$BASE_SHA" HEAD)
+        FILTER='\.(tf|tfvars|ya?ml)$|(^|/)Dockerfile[^/]*$'
+        IAC=$(echo "$CHANGED" | grep -E "$FILTER" || true)
+        # Skip CI/workflow yaml — governance noise, not infrastructure.
+        IAC=$(echo "$IAC" | grep -vE '^\.github/' || true)
+        if [ -n "${{ inputs.paths }}" ]; then
+          KEEP=""
+          for p in ${{ inputs.paths }}; do
+            KEEP+=$(echo "$IAC" | grep -E "^${p}" || true; echo)
+          done
+          IAC=$(echo "$KEEP" | grep -vE '^\s*$' | sort -u || true)
+        fi
+        IAC=$(echo "$IAC" | grep -vE '^\s*$' | sort -u || true)
+        COUNT=$(echo "$IAC" | grep -c . || true)
+        echo "$IAC" > "$RUNNER_TEMP/valqore-changed.txt"
+        echo "count=$COUNT" >> "$GITHUB_OUTPUT"
+        echo "base_sha=$BASE_SHA" >> "$GITHUB_OUTPUT"
+        echo "Changed IaC files ($COUNT):"; echo "$IAC" | sed 's/^/  /'
+
+    - name: Evaluate changed files (head)
+      id: head
+      if: steps.files.outputs.count != '0'
+      shell: bash
+      run: |
+        set -euo pipefail
+        SCAN="$RUNNER_TEMP/valqore-head"; mkdir -p "$SCAN"
+        while IFS= read -r f; do
+          [ -f "$f" ] || continue
+          mkdir -p "$SCAN/$(dirname "$f")"; cp "$f" "$SCAN/$f"
+        done < "$RUNNER_TEMP/valqore-changed.txt"
+        IMG="ghcr.io/valqore/engine:${{ inputs.engine-version }}"
+        docker pull -q "$IMG" >/dev/null
+        BUNDLE_ARG=""
+        if [ "${{ inputs.evidence-bundle }}" = "true" ]; then
+          BUNDLE_ARG="--bundle /scan/.valqore-evidence.json"
+        fi
+        set +e
+        docker run --rm -v "$SCAN:/scan" "$IMG" \
+          valqore evaluate /scan -o json --score $BUNDLE_ARG > "$RUNNER_TEMP/valqore-head.json" 2> "$RUNNER_TEMP/valqore-head.err"
+        RC=$?
+        set -e
+        # exit 1 with valid JSON = BLOCK verdict (expected); anything else without JSON = real error
+        if ! python3 -c "import json;json.load(open('$RUNNER_TEMP/valqore-head.json'))" 2>/dev/null; then
+          echo "Engine did not produce JSON (exit $RC):"; tail -20 "$RUNNER_TEMP/valqore-head.err"; exit 1
+        fi
+        [ -f "$SCAN/.valqore-evidence.json" ] && cp "$SCAN/.valqore-evidence.json" "$RUNNER_TEMP/valqore-evidence.json"
+        python3 - "$RUNNER_TEMP/valqore-head.json" >> "$GITHUB_OUTPUT" <<'PY'
+        import json, sys
+        d = json.load(open(sys.argv[1]))
+        print(f"verdict={d.get('verdict','')}")
+        print(f"score={(d.get('score') or {}).get('score','')}")
+        PY
+
+    - name: Evaluate same files at base (delta)
+      id: base
+      if: steps.files.outputs.count != '0' && inputs.compare-base == 'true'
+      shell: bash
+      run: |
+        set -euo pipefail
+        SCAN="$RUNNER_TEMP/valqore-base"; mkdir -p "$SCAN"
+        BASE_SHA="${{ steps.files.outputs.base_sha }}"
+        ANY=0
+        while IFS= read -r f; do
+          if git cat-file -e "$BASE_SHA:$f" 2>/dev/null; then
+            mkdir -p "$SCAN/$(dirname "$f")"
+            git show "$BASE_SHA:$f" > "$SCAN/$f"; ANY=1
+          fi
+        done < "$RUNNER_TEMP/valqore-changed.txt"
+        if [ "$ANY" = "0" ]; then echo "have=false" >> "$GITHUB_OUTPUT"; exit 0; fi
+        IMG="ghcr.io/valqore/engine:${{ inputs.engine-version }}"
+        set +e
+        docker run --rm -v "$SCAN:/scan" "$IMG" \
+          valqore evaluate /scan -o json --score > "$RUNNER_TEMP/valqore-base.json" 2>/dev/null
+        set -e
+        if python3 -c "import json;json.load(open('$RUNNER_TEMP/valqore-base.json'))" 2>/dev/null; then
+          echo "have=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "have=false" >> "$GITHUB_OUTPUT"
+        fi
+
+    - name: Build report & PR comment
+      id: report
+      if: steps.files.outputs.count != '0'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github-token }}
+      run: |
+        set -euo pipefail
+        python3 - "$RUNNER_TEMP/valqore-head.json" "$RUNNER_TEMP/valqore-base.json" > "$RUNNER_TEMP/valqore-comment.md" <<'PY'
+        import json, os, sys
+
+        head = json.load(open(sys.argv[1]))
+        base = None
+        try:
+            base = json.load(open(sys.argv[2]))
+        except Exception:
+            pass
+
+        def findings(d):
+            return {(r["rule_id"], r["resource_id"]): r for r in d.get("results", [])
+                    if r.get("outcome") in ("FAIL", "WARN")}
+
+        hf, bf = findings(head), findings(base) if base else {}
+        new = {k: v for k, v in hf.items() if k not in bf}
+        fixed = {k: v for k, v in bf.items() if k not in hf} if base else {}
+
+        verdict = head.get("verdict", "?")
+        badge = {"PASS": "🟢", "PASS_WITH_MONITORING": "🟡", "BLOCK": "🔴"}.get(verdict, "⚪")
+        score = (head.get("score") or {}).get("score")
+        grade = (head.get("score") or {}).get("grade", "")
+        bscore = (base.get("score") or {}).get("score") if base else None
+        delta = ""
+        if score is not None and bscore is not None:
+            d = score - bscore
+            delta = f" ({'+' if d >= 0 else ''}{d} vs base)"
+
+        s = head.get("summary", {})
+        lines = ["<!-- valqore-pr-verdict -->",
+                 f"## {badge} Valqore verdict: **{verdict}**",
+                 "",
+                 f"**Score:** {score}/100 ({grade}){delta} · "
+                 f"**{s.get('failures',0)}** FAIL / **{s.get('warnings',0)}** WARN across the changed IaC · "
+                 f"**{len(new)}** new vs base" + (f" · **{len(fixed)}** fixed" if fixed else ""),
+                 ""]
+        if new:
+            lines += ["### New findings introduced by this PR", "",
+                      "| Severity | Rule | Resource | Finding |", "|---|---|---|---|"]
+            order = {"CRITICAL": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3}
+            for (rid, res), r in sorted(new.items(), key=lambda kv: order.get(kv[1].get("severity", ""), 9))[:15]:
+                msg = (r.get("message") or "").replace("|", "\\|")[:120]
+                lines.append(f"| {r.get('severity','')} | `{rid}` | `{res[:40]}` | {msg} |")
+            if len(new) > 15:
+                lines.append(f"\n…and {len(new) - 15} more.")
+        else:
+            lines.append("No new FAIL/WARN findings vs the base branch. ✅")
+        lines += ["",
+                  "<sub>Deterministic verdict by [Valqore](https://valqore.io) — same input, same result, every run."
+                  + (" A reproducible evidence bundle is attached to this workflow run; re-run it with `valqore verify`."
+                     if os.path.exists(os.environ.get("RUNNER_TEMP", "") + "/valqore-evidence.json") else "")
+                  + "</sub>"]
+        print("\n".join(lines))
+        PY
+        cat "$RUNNER_TEMP/valqore-comment.md" >> "$GITHUB_STEP_SUMMARY"
+        NEW=$(grep -cE '^\| (CRITICAL|HIGH|MEDIUM|LOW) \|' "$RUNNER_TEMP/valqore-comment.md" || true)
+        echo "new_findings=$NEW" >> "$GITHUB_OUTPUT"
+        if [ "${{ inputs.comment }}" = "true" ] && [ -n "${{ github.event.pull_request.number }}" ]; then
+          PR=${{ github.event.pull_request.number }}
+          CID=$(gh api "repos/${{ github.repository }}/issues/$PR/comments" --paginate \
+                --jq '.[] | select(.body | startswith("<!-- valqore-pr-verdict -->")) | .id' | head -1 || true)
+          if [ -n "$CID" ]; then
+            gh api -X PATCH "repos/${{ github.repository }}/issues/comments/$CID" \
+              -F body=@"$RUNNER_TEMP/valqore-comment.md" >/dev/null
+          else
+            gh api "repos/${{ github.repository }}/issues/$PR/comments" \
+              -F body=@"$RUNNER_TEMP/valqore-comment.md" >/dev/null
+          fi
+        fi
+
+    - name: Upload evidence bundle
+      if: steps.files.outputs.count != '0' && inputs.evidence-bundle == 'true'
+      uses: actions/upload-artifact@v4
+      with:
+        name: valqore-evidence
+        path: ${{ runner.temp }}/valqore-evidence.json
+        if-no-files-found: ignore
+
+    - name: Enforce verdict
+      if: steps.files.outputs.count != '0' && inputs.fail-on == 'block'
+      shell: bash
+      run: |
+        if [ "${{ steps.head.outputs.verdict }}" = "BLOCK" ]; then
+          echo "::error::Valqore verdict is BLOCK for the changed IaC — see the PR comment / job summary."
+          exit 1
+        fi
