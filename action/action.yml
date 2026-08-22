@@ -99,12 +99,14 @@ runs:
         done < "$RUNNER_TEMP/valqore-changed.txt"
         IMG="ghcr.io/valqore/engine:${{ inputs.engine-version }}"
         docker pull -q "$IMG" >/dev/null
+        # The image runs as a non-root user; give it a writable output mount.
+        OUT="$RUNNER_TEMP/valqore-out"; mkdir -p "$OUT"; chmod 777 "$OUT"
         BUNDLE_ARG=""
         if [ "${{ inputs.evidence-bundle }}" = "true" ]; then
-          BUNDLE_ARG="--bundle /scan/.valqore-evidence.json"
+          BUNDLE_ARG="--bundle /out/valqore-evidence.json"
         fi
         set +e
-        docker run --rm -v "$SCAN:/scan" "$IMG" \
+        docker run --rm -v "$SCAN:/scan:ro" -v "$OUT:/out" "$IMG" \
           valqore evaluate /scan -o json --score $BUNDLE_ARG > "$RUNNER_TEMP/valqore-head.json" 2> "$RUNNER_TEMP/valqore-head.err"
         RC=$?
         set -e
@@ -112,7 +114,7 @@ runs:
         if ! python3 -c "import json;json.load(open('$RUNNER_TEMP/valqore-head.json'))" 2>/dev/null; then
           echo "Engine did not produce JSON (exit $RC):"; tail -20 "$RUNNER_TEMP/valqore-head.err"; exit 1
         fi
-        [ -f "$SCAN/.valqore-evidence.json" ] && cp "$SCAN/.valqore-evidence.json" "$RUNNER_TEMP/valqore-evidence.json"
+        [ -f "$OUT/valqore-evidence.json" ] && cp "$OUT/valqore-evidence.json" "$RUNNER_TEMP/valqore-evidence.json"
         python3 - "$RUNNER_TEMP/valqore-head.json" >> "$GITHUB_OUTPUT" <<'PY'
         import json, sys
         d = json.load(open(sys.argv[1]))
