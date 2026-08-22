@@ -10,7 +10,7 @@ the captured state, so the bundle re-runs to byte-identical results on any machi
 
 ```bash
 # requires Valqore Engine >= 1.13.7, e.g.:
-docker run --rm -v "$PWD:/w" ghcr.io/valqore/engine:1.13.7 verify /w/evidence.json
+docker run --rm -v "$PWD:/w" ghcr.io/valqore/engine:1.13.7 valqore verify /w/evidence.json
 # -> REPRODUCED -- 512 outcomes re-ran identically; verdict BLOCK. 167 control statuses reproduced.
 ```
 
@@ -19,15 +19,15 @@ Now try to cheat, and watch it fail:
 ```bash
 # 1) flip a recorded outcome (claim a failing rule passed)
 python -c "import json;b=json.load(open('evidence.json'));b['outcomes'][0]['outcome']='PASS';json.dump(b,open('t1.json','w'))"
-docker run --rm -v "$PWD:/w" ghcr.io/valqore/engine:1.13.7 verify /w/t1.json   # MISMATCH, exit 2
+docker run --rm -v "$PWD:/w" ghcr.io/valqore/engine:1.13.7 valqore verify /w/t1.json   # MISMATCH, exit 2
 
 # 2) edit the captured state to "make" the pod compliant
 python -c "import json;b=json.load(open('evidence.json'));b['inputs']['manifests'][0]['spec']['containers'][0]['securityContext']['privileged']=False;json.dump(b,open('t2.json','w'))"
-docker run --rm -v "$PWD:/w" ghcr.io/valqore/engine:1.13.7 verify /w/t2.json   # hash broken AND replay disagrees
+docker run --rm -v "$PWD:/w" ghcr.io/valqore/engine:1.13.7 valqore verify /w/t2.json   # hash broken AND replay disagrees
 
 # 3) flip a compliance-control status (claim a failed control passed)
 python -c "import json;b=json.load(open('evidence.json'));p=next(iter(b['controls']));c=next(iter(b['controls'][p]));b['controls'][p][c]='PASS';json.dump(b,open('t3.json','w'))"
-docker run --rm -v "$PWD:/w" ghcr.io/valqore/engine:1.13.7 verify /w/t3.json   # control MISMATCH, exit 2
+docker run --rm -v "$PWD:/w" ghcr.io/valqore/engine:1.13.7 valqore verify /w/t3.json   # control MISMATCH, exit 2
 ```
 
 The only way to change the verdict is to change the actual state -- fix the pod, re-evaluate,
