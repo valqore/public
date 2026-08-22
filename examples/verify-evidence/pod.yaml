@@ -1,0 +1,14 @@
+# A deliberately insecure pod -- the demo target for `valqore verify`.
+# Evaluate it, freeze the evidence, then re-run the evidence anywhere.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: payment-api
+  namespace: demo
+spec:
+  containers:
+    - name: payment-api
+      image: nginx:latest
+      securityContext:
+        privileged: true
+        runAsNonRoot: false

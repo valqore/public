@@ -1,0 +1,3327 @@
+{
+  "valqore_evidence_bundle": "1",
+  "engine_version": "1.13.6",
+  "ruleset_hash": "sha256:ca2a5028d291cc801ca2ad7c4e9bd3b0400dd0bcc11d6fdf88c43f7e20ce7c2b",
+  "inputs": {
+    "manifests": [
+      {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "name": "payment-api",
+          "namespace": "demo"
+        },
+        "spec": {
+          "containers": [
+            {
+              "name": "payment-api",
+              "image": "nginx:latest",
+              "securityContext": {
+                "privileged": true,
+                "runAsNonRoot": false
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "outcomes": [
+    {
+      "rule_id": "AIG-001",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "INFO"
+    },
+    {
+      "rule_id": "AIG-002",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-003",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-004",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-005",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-006",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-007",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-008",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-009",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-010",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-012",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-013",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-014",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-015",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-016",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-017",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-018",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-019",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-020",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-021",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-022",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-023",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-024",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-025",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-026",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-027",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-028",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-029",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-030",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-031",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-032",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-033",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-034",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-035",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-036",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-037",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "INFO"
+    },
+    {
+      "rule_id": "AIG-038",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-039",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-040",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-041",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-042",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-043",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-044",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-045",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-046",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "AIG-047",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-048",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-049",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-050",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "AIG-051",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-052",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-053",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-054",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-055",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-056",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-057",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-058",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-059",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-060",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-061",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-062",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-063",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-064",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-065",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-066",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-067",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "AIG-068",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-069",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-070",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-071",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-072",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-073",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-074",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-075",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-076",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-077",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-078",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-079",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-080",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-081",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-082",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-083",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-084",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-085",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-086",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-087",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-088",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-089",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-090",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-091",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-092",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-093",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-094",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-095",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-096",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-097",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-098",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-099",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-100",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-101",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-102",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-103",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-104",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-105",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-106",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "AIG-107",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-108",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "AIG-109",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "AIG-110",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-111",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "AIG-112",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "AIG-113",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-114",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-115",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "AIG-116",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-117",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-118",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-119",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-120",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-121",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-122",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-123",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-124",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-125",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-126",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "AIG-127",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-128",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-129",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-130",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-131",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-132",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-133",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-134",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-135",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-136",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-137",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-138",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "AIG-139",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-140",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-141",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-142",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-143",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-144",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-145",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-146",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-147",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-148",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-149",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-150",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-151",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-152",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-153",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-154",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-155",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-156",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-157",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-158",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-159",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-160",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-161",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-162",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-163",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-164",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "AIG-165",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-166",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-167",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-168",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-169",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-170",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-171",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "AIG-172",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-173",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-174",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-175",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-176",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-177",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-178",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-179",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-180",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-181",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-182",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-183",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-001",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-002",
+      "resource_id": "demo/payment-api",
+      "outcome": "NOT_ASSESSED",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-007",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-008",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-009",
+      "resource_id": "demo/payment-api",
+      "outcome": "NOT_ASSESSED",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-010",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-012",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-013",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-017",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-026",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-027",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-028",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-029",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-030",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "CC-031",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-032",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-034",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-035",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "CC-036",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "CC-038",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-044",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-045",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-049",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-050",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-051",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-052",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-053",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-055",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-056",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-057",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-065",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-071",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-074",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-076",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-077",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-078",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-079",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-080",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-081",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-082",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-083",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-084",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-085",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-086",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-087",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-088",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-089",
+      "resource_id": "demo/payment-api",
+      "outcome": "NOT_ASSESSED",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-090",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-091",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-092",
+      "resource_id": "demo/payment-api",
+      "outcome": "NOT_ASSESSED",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-093",
+      "resource_id": "demo/payment-api",
+      "outcome": "NOT_ASSESSED",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-094",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-095",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-097",
+      "resource_id": "demo/payment-api",
+      "outcome": "NOT_ASSESSED",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-098",
+      "resource_id": "demo/payment-api",
+      "outcome": "NOT_ASSESSED",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-099",
+      "resource_id": "demo/payment-api",
+      "outcome": "NOT_ASSESSED",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-100",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-101",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-102",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-103",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-104",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-107",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-108",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-109",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-110",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-111",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-112",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-113",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-114",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-115",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-116",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-117",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-118",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-119",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-120",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-121",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-122",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-123",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-124",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-125",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-127",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-128",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-129",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-130",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-131",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "CC-132",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-133",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-134",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-135",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-136",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-137",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-138",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-139",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "CC-140",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-141",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-142",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-143",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-144",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-145",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-146",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-150",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-151",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-152",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-153",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-154",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-155",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-160",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-161",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-162",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-163",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-164",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-165",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-166",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-167",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-168",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-169",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-170",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-171",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-172",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-173",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-174",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-175",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-176",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-183",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-184",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CC-185",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-SAVINGS-001",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-SAVINGS-002",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-SAVINGS-003",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CC-SAVINGS-004",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-SAVINGS-005",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CC-SAVINGS-006",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CMP-018",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CMP-021",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CMP-022",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CMP-023",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CMP-024",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CMP-025",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CMP-026",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CMP-027",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CMP-028",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CMP-029",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CMP-030",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CMP-031",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CMP-032",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CMP-033",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CMP-034",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CS-001",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CS-002",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CS-003",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CS-004",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CS-005",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "CS-006",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "CS-010",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CS-013",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CS-014",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CS-019",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CS-020",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CS-021",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CS-023",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CS-024",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CS-025",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CS-026",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CS-027",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CS-028",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CS-029",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CS-030",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CS-031",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CS-032",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CS-033",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CS-034",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "CS-035",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "CS-PQC-003",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CS-PQC-008",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "CS-PQC-014",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "GPU-001",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "GPU-002",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "GPU-003",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "GPU-004",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "GPU-005",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "GPU-006",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "GPU-007",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "GPU-008",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "GPU-009",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "GPU-010",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "GR-001",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "GR-002",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "GR-003",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "GR-004",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "GR-005",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "GR-006",
+      "resource_id": "demo/payment-api",
+      "outcome": "NOT_ASSESSED",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "GR-007",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "GR-008",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "GR-009",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "GR-013",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "GR-014",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "GR-016",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "GR-017",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "GR-018",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "GR-019",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "GR-020",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "GR-021",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "GR-022",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "GR-023",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "GR-024",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "GR-025",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "GR-026",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "IMG-001",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "IMG-002",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "IMG-003",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "IMG-004",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "IMG-006",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "K8S-042",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "K8S-044",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "K8S-045",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "K8S-046",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "K8S-047",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "K8S-048",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "K8S-049",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "K8S-050",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "NET-011",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "NET-019",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "NET-020",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "NET-027",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "NET-030",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "NET-034",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "NET-035",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "NET-040",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "NET-042",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "NET-048",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "NET-051",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "NET-057",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "NET-060",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "OH-004",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "OH-013",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "OH-016",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "OH-025",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "OH-026",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "OH-027",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "OH-028",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "OH-029",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "OH-034",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "OH-035",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "OH-038",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "OH-039",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "OH-040",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "OH-042",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "OH-043",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "OH-044",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "OH-049",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "OH-050",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "OH-052",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "OH-055",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "OH-062",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "OH-063",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "OH-064",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "OH-065",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "OH-066",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "OH-067",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "OH-068",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "OH-069",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "OH-070",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "OH-071",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "OH-072",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "OH-073",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "OH-074",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SCS-001",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SCS-002",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SCS-003",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SCS-004",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SCS-005",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SCS-006",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SCS-008",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SCS-009",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SCS-010",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SCS-012",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SCS-013",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "SCS-014",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "SCS-015",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SCS-016",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SCS-017",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SCS-018",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "SCS-019",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "SCS-020",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SCS-021",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SCS-022",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "SCS-023",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SCS-024",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SCS-025",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SCS-026",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SCS-027",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SCS-028",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "SP-006",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-007",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "SP-008",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-009",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-010",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-011",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SP-016",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SP-022",
+      "resource_id": "demo/payment-api",
+      "outcome": "FAIL",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-023",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SP-024",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SP-025",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SP-026",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SP-027",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "SP-038",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "SP-039",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-040",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-059",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "SP-061",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SP-062",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-064",
+      "resource_id": "demo/payment-api",
+      "outcome": "WARN",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SP-066",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "SP-068",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SP-069",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    },
+    {
+      "rule_id": "SP-071",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-072",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SP-074",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "SP-075",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-079",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "SP-080",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "SP-083",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "SP-085",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-086",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-087",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-089",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-092",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-093",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "CRITICAL"
+    },
+    {
+      "rule_id": "SP-096",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "HIGH"
+    },
+    {
+      "rule_id": "SP-098",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "LOW"
+    }
+  ],
+  "verdict": "BLOCK",
+  "controls": {
+    "ai_finops": {
+      "FINOPS-VIS": "PASS",
+      "FINOPS-ALLOC": "PASS",
+      "FINOPS-BUDGET": "PASS",
+      "FINOPS-OUTPUT": "PASS",
+      "FINOPS-ROUTING": "PASS",
+      "FINOPS-CACHE": "PASS",
+      "FINOPS-RATE": "PASS",
+      "FINOPS-RETRY": "PASS",
+      "FINOPS-BATCH": "PASS",
+      "FINOPS-SUSTAIN": "PASS"
+    },
+    "cra": {
+      "Art.14": "FAIL",
+      "Art.13.5": "FAIL",
+      "Art.11": "FAIL",
+      "Art.13.8": "FAIL",
+      "Art.18": "FAIL",
+      "AnnexI.2.1": "FAIL",
+      "AnnexI.1.2b": "FAIL",
+      "AnnexI.1.2k": "FAIL",
+      "AnnexI.2.vuln": "FAIL",
+      "AnnexI.Essential": "FAIL"
+    },
+    "dora": {
+      "Art.6-16": "FAIL",
+      "Art.17-19": "FAIL",
+      "Art.24-26": "FAIL",
+      "Art.28.3": "FAIL",
+      "Art.28.4": "FAIL",
+      "Art.28.8": "PASS",
+      "Art.28-44": "FAIL",
+      "Art.45": "PASS"
+    },
+    "eu_ai_act": {
+      "Art.9": "PASS",
+      "Art.10": "PASS",
+      "Art.11": "PASS",
+      "Art.12": "PASS",
+      "Art.13": "PASS",
+      "Art.50": "PASS",
+      "Art.14": "PASS",
+      "Art.15": "PASS",
+      "Art.40": "PASS",
+      "Art.49": "PASS"
+    },
+    "fda_samd": {
+      "PCCP": "PASS",
+      "GMLP-HumanAI": "PASS",
+      "Transparency": "PASS",
+      "GMLP-Provenance": "PASS",
+      "RWP": "PASS"
+    },
+    "fedramp": {
+      "AC-6": "FAIL",
+      "AU-2": "PASS",
+      "CM-6": "FAIL",
+      "SC-6": "FAIL",
+      "SC-7": "PASS",
+      "SC-8": "PASS",
+      "SC-28": "PASS",
+      "SI-4": "PASS",
+      "SI-7": "PASS",
+      "CP-9": "PASS"
+    },
+    "gdpr": {
+      "Art.25": "PASS",
+      "Art.32": "FAIL",
+      "Art.30": "PASS",
+      "Art.35": "PASS",
+      "Art.22": "PASS",
+      "Art.17": "PASS"
+    },
+    "hipaa": {
+      "164.312(a)(1)": "FAIL",
+      "164.312(b)": "PASS",
+      "164.312(c)(1)": "PASS",
+      "164.312(e)(1)": "PASS",
+      "164.308(a)(7)": "PASS",
+      "164.312(a)(2)(iv)": "PASS",
+      "164.312(d)": "PASS"
+    },
+    "iso27001": {
+      "A.8.2": "FAIL",
+      "A.8.6": "FAIL",
+      "A.8.7": "PASS",
+      "A.8.9": "FAIL",
+      "A.8.14": "PASS",
+      "A.8.15": "PASS",
+      "A.8.20": "PASS",
+      "A.8.24": "PASS"
+    },
+    "iso_42001": {
+      "4.1": "PASS",
+      "4.2": "PASS",
+      "5.1": "PASS",
+      "5.2": "PASS",
+      "6.1": "PASS",
+      "6.2": "PASS",
+      "7.1": "PASS",
+      "7.2": "PASS",
+      "7.3": "PASS",
+      "7.4": "PASS",
+      "8.1": "PASS",
+      "8.2": "PASS",
+      "8.3": "PASS",
+      "8.4": "PASS",
+      "9.1": "PASS",
+      "9.2": "PASS",
+      "9.3": "PASS",
+      "10.1": "PASS",
+      "10.2": "PASS"
+    },
+    "nist_ai_rmf": {
+      "GOVERN-1": "PASS",
+      "MAP-1": "PASS",
+      "MEASURE-1": "PASS",
+      "MANAGE-1": "PASS",
+      "MANAGE-2": "PASS",
+      "MAP-2": "PASS",
+      "GOVERN-2": "PASS"
+    },
+    "nist_csf": {
+      "ID.AM": "PASS",
+      "PR.AC": "FAIL",
+      "PR.DS": "PASS",
+      "PR.IR": "PASS",
+      "DE.CM": "PASS",
+      "RC.RP": "PASS"
+    },
+    "owasp_agentic": {
+      "AAI01": "PASS",
+      "AAI02": "PASS",
+      "AAI03": "PASS",
+      "AAI04": "PASS",
+      "AAI05": "PASS",
+      "AAI06": "PASS",
+      "AAI07": "PASS",
+      "AAI08": "PASS",
+      "AAI09": "PASS",
+      "AAI10": "PASS"
+    },
+    "owasp_llm": {
+      "LLM01": "PASS",
+      "LLM02": "PASS",
+      "LLM03": "PASS",
+      "LLM06": "PASS",
+      "LLM07": "PASS",
+      "LLM08": "PASS",
+      "LLM09": "PASS",
+      "LLM10": "PASS"
+    },
+    "owasp_mcp": {
+      "MCP01:2025": "PASS",
+      "MCP02:2025": "PASS",
+      "MCP03:2025": "PASS",
+      "MCP04:2025": "PASS",
+      "MCP05:2025": "PASS",
+      "MCP06:2025": "PASS",
+      "MCP07:2025": "PASS",
+      "MCP08:2025": "PASS",
+      "MCP09:2025": "PASS",
+      "MCP10:2025": "PASS"
+    },
+    "pci_dss": {
+      "Req.1": "PASS",
+      "Req.2": "FAIL",
+      "Req.3": "PASS",
+      "Req.4": "PASS",
+      "Req.6": "PASS",
+      "Req.7": "PASS",
+      "Req.10": "PASS"
+    },
+    "pqc_migration": {
+      "CNSA2.NSS": "PASS",
+      "CNSA2.SIG": "PASS",
+      "CNSA2.KEM": "PASS",
+      "CNSA2.SYM": "PASS",
+      "CNSA2.TLS": "PASS",
+      "CNSA2.AT-REST": "PASS",
+      "CNSA2.AGILITY": "PASS"
+    },
+    "soc2": {
+      "CC6.1": "FAIL",
+      "CC6.3": "PASS",
+      "CC6.6": "PASS",
+      "CC6.7": "PASS",
+      "CC7.2": "PASS",
+      "CC8.1": "PASS",
+      "A1.1": "FAIL",
+      "A1.2": "PASS",
+      "C1.1": "PASS"
+    },
+    "sr_11_7": {
+      "MRM-001": "FAIL",
+      "MRM-002": "PASS",
+      "MRM-003": "PASS",
+      "MRM-004": "PASS",
+      "MRM-005": "PASS",
+      "MRM-006": "PASS",
+      "MRM-007": "PASS",
+      "MRM-008": "PASS",
+      "MRM-RFI-AGENTIC": "PASS",
+      "MRM-RFI-REPRODUCIBILITY": "PASS"
+    }
+  },
+  "summary": {
+    "total": 512,
+    "passed": 411,
+    "warnings": 57,
+    "failures": 35,
+    "errors": 0,
+    "info": 0,
+    "not_assessed": 9
+  },
+  "source": {
+    "kind": "kubernetes",
+    "label": "examples\\verify-evidence\\pod.yaml"
+  },
+  "created_at": "2026-08-22T15:51:13.572013+00:00",
+  "content_hash": "sha256:df194aab1d7b7e579509fa164b58e389bbf7cdb65d60d4bdd170acffd5ebe882",
+  "signature": ""
+}
