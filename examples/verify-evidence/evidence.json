@@ -1,6 +1,6 @@
 {
   "valqore_evidence_bundle": "1",
-  "engine_version": "1.13.6",
+  "engine_version": "1.13.7",
   "ruleset_hash": "sha256:ca2a5028d291cc801ca2ad7c4e9bd3b0400dd0bcc11d6fdf88c43f7e20ce7c2b",
   "inputs": {
     "manifests": [
@@ -3321,7 +3321,7 @@
     "kind": "kubernetes",
     "label": "examples\\verify-evidence\\pod.yaml"
   },
-  "created_at": "2026-08-22T15:51:13.572013+00:00",
-  "content_hash": "sha256:df194aab1d7b7e579509fa164b58e389bbf7cdb65d60d4bdd170acffd5ebe882",
+  "created_at": "2026-08-22T16:07:34.785917+00:00",
+  "content_hash": "sha256:1e16a844561ca8e0269169663526f60b20248476e4d0f57451d03bcf1b9fde54",
   "signature": ""
 }
