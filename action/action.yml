@@ -85,9 +85,17 @@ runs:
       run: |
         set -euo pipefail
         SCAN="$RUNNER_TEMP/valqore-head"; mkdir -p "$SCAN"
+        # Flatten paths: the engine's directory loader reads top-level files, so
+        # nested copies would be invisible. Dockerfiles keep their name prefix so
+        # the Dockerfile parser still recognises them.
         while IFS= read -r f; do
           [ -f "$f" ] || continue
-          mkdir -p "$SCAN/$(dirname "$f")"; cp "$f" "$SCAN/$f"
+          flat=$(echo "$f" | tr '/' '_')
+          case "$(basename "$f")" in
+            Dockerfile*) dest="Dockerfile__${flat}" ;;
+            *) dest="$flat" ;;
+          esac
+          cp "$f" "$SCAN/$dest"
         done < "$RUNNER_TEMP/valqore-changed.txt"
         IMG="ghcr.io/valqore/engine:${{ inputs.engine-version }}"
         docker pull -q "$IMG" >/dev/null
@@ -123,8 +131,12 @@ runs:
         ANY=0
         while IFS= read -r f; do
           if git cat-file -e "$BASE_SHA:$f" 2>/dev/null; then
-            mkdir -p "$SCAN/$(dirname "$f")"
-            git show "$BASE_SHA:$f" > "$SCAN/$f"; ANY=1
+            flat=$(echo "$f" | tr '/' '_')
+            case "$(basename "$f")" in
+              Dockerfile*) dest="Dockerfile__${flat}" ;;
+              *) dest="$flat" ;;
+            esac
+            git show "$BASE_SHA:$f" > "$SCAN/$dest"; ANY=1
           fi
         done < "$RUNNER_TEMP/valqore-changed.txt"
         if [ "$ANY" = "0" ]; then echo "have=false" >> "$GITHUB_OUTPUT"; exit 0; fi
