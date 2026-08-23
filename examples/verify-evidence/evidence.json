@@ -1,7 +1,7 @@
 {
   "valqore_evidence_bundle": "1",
-  "engine_version": "1.13.8",
-  "ruleset_hash": "sha256:a0c9c84bb7d649f3d794d3fd894ce27f03cc0055e0fc9e565f7418904de583c3",
+  "engine_version": "1.14.0",
+  "ruleset_hash": "sha256:6eeb54c93a4d2274f03cc3642b24d0b36f9123140de088db327aa148e8efccfb",
   "inputs": {
     "manifests": [
       {
@@ -3297,6 +3297,7 @@
       "CNSA2.AGILITY": "PASS"
     },
     "soc2": {
+      "CC1.1": "PASS",
       "CC6.1": "FAIL",
       "CC6.2": "PASS",
       "CC6.3": "PASS",
@@ -3332,9 +3333,9 @@
   },
   "source": {
     "kind": "kubernetes",
-    "label": "examples\\verify-evidence\\pod.yaml"
+    "label": "pod.yaml"
   },
-  "created_at": "2026-08-23T16:35:35.134038+00:00",
-  "content_hash": "sha256:643c44f10adac915d86e602af5c105f55acb647b016e55f48d3068621ef704b5",
+  "created_at": "2026-08-23T21:40:33.746520+00:00",
+  "content_hash": "sha256:7a54aebf368f2d4e3f61b8ce0b9f9c7eb9b2ed881e87fe8dc4af4b51fb3cf3d7",
   "signature": ""
 }
