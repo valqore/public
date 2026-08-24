@@ -1,0 +1,40 @@
+# Valqore ServiceTemplate for k0rdent (Mirantis).
+#
+# Registers Valqore as a k0rdent-managed service so the deterministic governance
+# engine + admission control can be deployed onto any k0rdent-provisioned cluster
+# from the Catalog. It wraps the public, signed valqore-stack Helm chart — nothing
+# proprietary, nothing that phones home.
+#
+# NOTE: match `apiVersion` to your k0rdent release (k0rdent.mirantis.com/v1beta1
+# at the time of writing). Apply into the k0rdent management namespace, then
+# reference it from a ClusterDeployment's `spec.serviceSpec.services`.
+apiVersion: k0rdent.mirantis.com/v1beta1
+kind: ServiceTemplate
+metadata:
+  name: valqore-stack
+  namespace: kcm-system
+  labels:
+    k0rdent.mirantis.com/component: catalog
+    app.kubernetes.io/part-of: valqore
+spec:
+  helm:
+    chartSpec:
+      # The valqore-stack chart has its own version line (independent of the
+      # engine image version). Check `oci://ghcr.io/valqore/charts/valqore-stack`
+      # for the latest before pinning.
+      chart: valqore-stack
+      version: "0.3.0"
+      sourceRef:
+        kind: HelmRepository
+        name: valqore-oci
+---
+# The OCI HelmRepository the ServiceTemplate pulls the signed chart from.
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: valqore-oci
+  namespace: kcm-system
+spec:
+  type: oci
+  url: oci://ghcr.io/valqore/charts
+  interval: 60m

@@ -1,0 +1,34 @@
+# k0rdent Catalog metadata for Valqore.
+# Submit this alongside the ServiceTemplate when contributing to the k0rdent
+# Catalog (catalog.k0rdent.io). Field names track the k0rdent catalog schema;
+# confirm against the current catalog repo before opening the PR.
+title: Valqore
+tagline: Deterministic governance for the AI factory — security, cost, carbon, compliance, and AI agents in one verdict.
+category: Security & Governance
+tags:
+  - governance
+  - compliance
+  - ai-agents
+  - security
+  - finops
+  - sovereign
+vendor:
+  name: Valqore
+  url: https://valqore.io
+  supportEmail: tunc@valqore.io
+serviceTemplate: valqore-stack
+description: >
+  Valqore scans what runs on your k0rdent-managed clusters — Kubernetes manifests,
+  live cloud resources, and the AI agents themselves — and returns one score and
+  one verdict (PASS / PASS_WITH_MONITORING / BLOCK) with re-runnable NIST OSCAL
+  evidence. Rules compile to native ValidatingAdmissionPolicy, so the Kubernetes
+  API server enforces them and Valqore is never in the data path. Runs self-hosted
+  and air-gapped — nothing about your infrastructure leaves your environment,
+  which matters for the sovereign and GPU clouds k0rdent provisions.
+highlights:
+  - 1,428 deterministic rules across security, cost, carbon, compliance, AI governance
+  - AI-agent fleet governance — discover shadow agents, delegation cycles, fleet score
+  - 19 compliance packs incl. FedRAMP, EU AI Act, ISO 42001, CRA, PQC (CNSA 2.0)
+  - Reproducible evidence — any bundle re-runs to byte-identical results (valqore verify)
+  - Not in the data path — enforcement via native ValidatingAdmissionPolicy
+license: Free public core (compiled, signed image); licensed AI add-on
