@@ -4,15 +4,15 @@
 
 [![Website](https://img.shields.io/badge/website-valqore.io-blue)](https://www.valqore.io)
 [![Image](https://img.shields.io/badge/ghcr.io-valqore%2Fengine-2496ED?logo=docker)](https://github.com/orgs/valqore/packages/container/package/engine)
-[![Rules](https://img.shields.io/badge/rules-1,381-brightgreen)]()
-[![Compliance Packs](https://img.shields.io/badge/compliance%20packs-18-blueviolet)]()
+[![Rules](https://img.shields.io/badge/rules-1,428-brightgreen)]()
+[![Compliance Packs](https://img.shields.io/badge/compliance%20packs-19-blueviolet)]()
 [![Blog](https://img.shields.io/badge/blog-blog.valqore.io-black)](https://blog.valqore.io)
 
 ---
 
 Valqore is an infrastructure governance engine that scans Kubernetes manifests, Terraform configurations, and cloud resources — then returns a **score (0-100)** and a **verdict** (PASS, PASS_WITH_MONITORING, or BLOCK).
 
-**1,381 built-in rules** across security, cost, **carbon/sustainability (GreenOps)**, compliance, and AI governance, organised into **19 compliance packs** (including OWASP Top 10 for Agentic Applications 2026, EU AI Act Annex III, CRA, DORA, SOC2, HIPAA, FedRAMP, SR 11-7, and PQC Migration / CNSA 2.0). No configuration needed. Runs anywhere Docker runs.
+**1,428 built-in rules** across security, cost, **carbon/sustainability (GreenOps)**, compliance, and AI governance, organised into **19 compliance packs** (including OWASP Top 10 for Agentic Applications 2026, EU AI Act Annex III, CRA, DORA, SOC2, HIPAA, FedRAMP, SR 11-7, and PQC Migration / CNSA 2.0). No configuration needed. Runs anywhere Docker runs.
 
 ---
 
@@ -62,7 +62,7 @@ valqore agent-audit ./k8s/                 # who governs your AI agents?
 | **K8s admission control** | [`helm install` the `valqore-stack` chart](#30-second-cluster-install-kubernetes-native) | Cluster-wide enforcement via native `ValidatingAdmissionPolicy` |
 | **VS Code extension** | [`valqore-vscode`](https://docs.valqore.io) `.vsix` | Real-time CodeLens + hover + quick-fix in YAML / Terraform / Helm |
 | **Freelens K8s IDE** | [`freelens-valqore`](https://docs.valqore.io) extension | Resource-detail panels + cluster overview + right-click policy checks |
-| **MCP for Claude / Cursor** | `valqore mcp` | 135 governance tools your AI assistant can call |
+| **MCP for Claude / Cursor** | `valqore mcp` | 137 governance tools your AI assistant can call |
 
 ## 30-second cluster install (Kubernetes-native)
 
@@ -104,7 +104,7 @@ with an SBOM**.
 
 | Image | Distribution | What's included |
 |-------|------|-------------|
-| `ghcr.io/valqore/engine:latest` | **Free, public, tokenless** | All 1,381 rules, scoring, drift, billing, compliance, MCP, agent-gate |
+| `ghcr.io/valqore/engine:latest` | **Free, public, tokenless** | All 1,428 rules, scoring, drift, billing, compliance, MCP, agent-gate |
 | `ghcr.io/valqore/engine-ai:1.13.6` | **Licensed** ([request access](mailto:tunc@valqore.io)) | Everything above + embedded offline AI model (AI scan, chat) |
 
 Only the AI features need a license. To activate the AI image, create a persistent volume once,
@@ -121,13 +121,13 @@ docker run --rm -v valqore-data:/app/data ghcr.io/valqore/engine-ai:1.13.6 valqo
 
 Every published image is cryptographically signed and carries an SPDX SBOM, so you can prove exactly what you're running. Install [cosign](https://docs.sigstore.dev/cosign/system_config/installation/), then:
 
-**Public image** (`ghcr.io/valqore/engine:1.13.6`) — keyless-signed in CI via Sigstore (GitHub OIDC + Rekor):
+**Public image** (`ghcr.io/valqore/engine:1.16.0`) — keyless-signed in CI via Sigstore (GitHub OIDC + Rekor):
 
 ```bash
-cosign verify ghcr.io/valqore/engine:1.13.6 \
+cosign verify ghcr.io/valqore/engine:1.16.0 \
   --certificate-identity-regexp 'https://github.com/valqore/valqore-engine/.*' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
-cosign verify-attestation ghcr.io/valqore/engine:1.13.6 --type spdxjson \
+cosign verify-attestation ghcr.io/valqore/engine:1.16.0 --type spdxjson \
   --certificate-identity-regexp 'https://github.com/valqore/valqore-engine/.*' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```
@@ -256,7 +256,7 @@ valqore image-audit ./ --check-updates
 valqore evidence hipaa -f ./           # add -f oscal for machine-readable NIST OSCAL
 ```
 
-All 16 packs: `hipaa`, `soc2`, `pci_dss`, `gdpr`, `iso27001`, `iso_42001`, `eu_ai_act`, `nist_csf`, `nist_ai_rmf`, `owasp_llm`, `owasp_agentic`, `dora`, `fedramp`, `sr_11_7`, `cra`, `pqc_migration`.
+All 19 packs: `hipaa`, `soc2`, `pci_dss`, `gdpr`, `iso27001`, `iso_42001`, `eu_ai_act`, `nist_csf`, `nist_ai_rmf`, `owasp_llm`, `owasp_agentic`, `owasp_mcp`, `dora`, `fedramp`, `sr_11_7`, `cra`, `pqc_migration`, `fda_samd`, `ai_finops`.
 
 ### GreenOps — carbon tracking (built in)
 
@@ -566,7 +566,7 @@ docker run --rm -it -v "$PWD:/work" -w /work -v valqore-data:/app/data \
 | **Security** | Container hardening, RBAC, encryption, network policies, supply chain, attack path analysis |
 | **Cost & FinOps** | Waste detection, right-sizing, billing analysis (AWS/Azure/GCP), budget gates, cost simulation |
 | **GreenOps** | CO2e per workload, greener region suggestions, carbon budgets, GPU emissions, 77 regions with grid intensity data |
-| **Compliance** | 16 packs: HIPAA, SOC 2, PCI-DSS, GDPR, EU AI Act, ISO 42001, NIST AI RMF, OWASP LLM/Agentic, CIS, DORA, FedRAMP, SR 11-7, CRA, PQC, and more — each exportable as machine-readable **NIST OSCAL** evidence |
+| **Compliance** | 19 packs: HIPAA, SOC 2, PCI-DSS, GDPR, EU AI Act, ISO 42001, NIST AI RMF, OWASP LLM/Agentic/MCP, DORA, FedRAMP, SR 11-7, CRA, PQC, FDA SaMD, AI FinOps, and more — each exportable as machine-readable **NIST OSCAL** evidence |
 | **AI Governance** | Shadow AI detection, EU AI Act risk classification, model promotion gates, GPU cost/carbon tracking |
 | **AI Agent Fleet Governance** | `agent-audit` discovers AI agents across manifests/cluster/cloud and scores each one's posture (identity, guardrails, boundary, oversight, model supply chain) into a GOVERNED / PARTIAL / UNGOVERNED fleet verdict — exportable as OSCAL. Plus a runtime MCP gate for live agent tool calls |
 | **Drift Detection** | Terraform state vs live cloud, CloudTrail attribution, continuous monitoring with Slack alerts |
