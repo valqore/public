@@ -1,0 +1,26 @@
+# Valqore plugins for sofka — https://github.com/nklmilojevic/sofka/blob/main/docs/plugins.md
+#
+# Merge into your sofka config's [[plugins]] entries.
+# Requires: valqore + kubectl on PATH. Both plugins are read-only.
+#
+#   shift-w  on a workload -> `valqore why` (deterministic incident view:
+#            failure reasons + Warning events + the governance findings that relate)
+#   shift-v  on any resource -> `valqore evaluate` (score + verdict + findings)
+
+[[plugins]]
+key = "shift-w"
+name = "valqore-why"
+command = "valqore"
+args = ["why", "$NAME", "-n", "$NAMESPACE"]
+scopes = ["deployments", "statefulsets", "daemonsets", "pods"]
+mutating = false
+output = "popup"
+
+[[plugins]]
+key = "shift-v"
+name = "valqore-evaluate"
+command = "sh"
+args = ["-c", "t=\"$(mktemp).yaml\"; kubectl get \"$RESOURCE\" \"$NAME\" -n \"$NAMESPACE\" -o yaml > \"$t\" && valqore evaluate \"$t\"; rm -f \"$t\" \"${t%.yaml}\""]
+scopes = ["pods", "deployments", "statefulsets", "daemonsets", "services", "ingresses"]
+mutating = false
+output = "popup"

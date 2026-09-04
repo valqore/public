@@ -1,0 +1,40 @@
+# Valqore plugins for k9s — https://k9scli.io/topics/plugins/
+#
+# Merge into $XDG_CONFIG_HOME/k9s/plugins.yaml
+# (macOS: ~/Library/Application Support/k9s/plugins.yaml, Linux: ~/.config/k9s/plugins.yaml)
+# Requires: valqore + kubectl on PATH.
+#
+#   Shift-W  on a workload -> `valqore why` (deterministic incident view:
+#            failure reasons + Warning events + the governance findings that relate)
+#   Shift-V  on any resource -> `valqore evaluate` (score + verdict + findings)
+plugins:
+  valqore-why:
+    shortCut: Shift-W
+    description: "Valqore: why is it broken?"
+    scopes:
+      - deployments
+      - statefulsets
+      - daemonsets
+      - pods
+    command: sh
+    background: false
+    args:
+      - -c
+      - >-
+        valqore why "$NAME" -n "$NAMESPACE";
+        echo; read -p "press enter to return to k9s"
+  valqore-evaluate:
+    shortCut: Shift-V
+    description: "Valqore: score + verdict"
+    scopes:
+      - all
+    command: sh
+    background: false
+    args:
+      - -c
+      - >-
+        t="$(mktemp).yaml";
+        kubectl get "$RESOURCE_NAME" "$NAME" ${NAMESPACE:+-n "$NAMESPACE"} -o yaml > "$t"
+        && valqore evaluate "$t";
+        rm -f "$t" "${t%.yaml}";
+        echo; read -p "press enter to return to k9s"

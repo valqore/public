@@ -5,11 +5,11 @@
 | | |
 |---|---|
 | **Author** | Tunc Celik, Founder, Valqore |
-| **Version** | 1.1 |
+| **Version** | 1.2 |
 | **Date** | 2026-09-04 (v1.0: 2026-05-07) |
 | **Audience** | Enterprise CISOs, Chief AI Officers, Heads of Model Risk |
 
-> **Revision note (v1.1):** engine counts refreshed to the current release (1,428 rules / 19 categories, v1.18.0); §5.5/§5.6 updated — the three-guard EWMA anomaly model described as future work in v1.0 has shipped; EU AI Act enforcement date language updated (now in force).
+> **Revision note (v1.1/v1.2):** engine counts refreshed to the current release (1,428 rules / 19 categories, v1.18.0); §5.5/§5.6 updated — the three-guard EWMA anomaly model described as future work in v1.0 has shipped; EU AI Act enforcement date language updated (now in force); §5.6 gains a third independent convergence (sofka).
 
 ---
 
@@ -263,7 +263,12 @@ The Sealed-Loop pattern is not unique to Valqore. The Versus Incident project (g
 - **(d) Multi-guard EWMA baselines for anomaly detection.** Versus uses three guards (spike_multiplier, spike_min_frequency, spike_min_baseline_count); Valqore ships the equivalent three-guard model in score-space (sigma deviation, absolute magnitude floor, warmup sample count) as of engine v1.18.x.
 - **(e) Sealed audit log of decisions,** distinct from the AI inference output. In Versus, this is the shadow.json file; in Valqore, it is the cryptographically chained SQLite audit log.
 
-Two independent teams — operating in adjacent but non-overlapping domains (incident routing vs. infrastructure governance) — converging on the same five primitives is strong evidence that the Sealed-Loop architecture is the correct response to the threat model in Section 2, not a Valqore-specific design choice.
+A third independent convergence appeared in 2026: **sofka** (github.com/nklmilojevic/sofka, MIT/Apache-2.0), a Kubernetes TUI written in Rust by a third unrelated author, ships:
+
+- **(f) a deterministic incident view** — its `X` "explain why" feature is documented as "a deterministic incident view: rollout state, degraded conditions, blocking pods, container failure reasons, recent Warning events. **No AI, no external service.**" Its roadmap goes further: health explanations "must be deterministic core features — AI may summarize or help explore collected evidence" but cannot be required.
+- **(g) guardrails enforced, not remembered** — read-only mode and "never delete in prod" are "enforced per context, not remembered," alongside **an action journal of everything you did** — the same enforcement-over-convention and journaling primitives as P4 and Layer 4.
+
+Three independent teams — operating in adjacent but non-overlapping domains (incident routing, cluster operations, and infrastructure governance) — converging on the same primitives is strong evidence that the Sealed-Loop architecture is the correct response to the threat model in Section 2, not a Valqore-specific design choice.
 
 ## 6. Benchmark Methodology
 
@@ -374,3 +379,4 @@ Enterprise CISOs and Chief AI Officers exposed to the EU AI Act (now in force), 
 14. AWS Cedar policy language. https://www.cedarpolicy.com/
 15. OSCAL 1.1.2 specification. https://pages.nist.gov/OSCAL/concepts/layer/assessment/assessment-results/
 16. Versus Incident AI SRE Agent (independent prior art on training/shadow/detect modes, pre-LLM redaction, EWMA spike detection, sealed audit log). MIT-licensed, v1.3.9 May 2026. https://github.com/VersusControl/versus-incident
+17. sofka Kubernetes TUI (independent prior art on deterministic no-AI incident views, enforced guardrails, action journal). MIT/Apache-2.0, 2026. https://github.com/nklmilojevic/sofka · https://sofka.rs
