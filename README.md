@@ -121,13 +121,13 @@ docker run --rm -v valqore-data:/app/data ghcr.io/valqore/engine-ai:1.13.6 valqo
 
 Every published image is cryptographically signed and carries an SPDX SBOM, so you can prove exactly what you're running. Install [cosign](https://docs.sigstore.dev/cosign/system_config/installation/), then:
 
-**Public image** (`ghcr.io/valqore/engine:1.17.0`) — keyless-signed in CI via Sigstore (GitHub OIDC + Rekor):
+**Public image** (`ghcr.io/valqore/engine:1.18.0`) — keyless-signed in CI via Sigstore (GitHub OIDC + Rekor):
 
 ```bash
-cosign verify ghcr.io/valqore/engine:1.17.0 \
+cosign verify ghcr.io/valqore/engine:1.18.0 \
   --certificate-identity-regexp 'https://github.com/valqore/valqore-engine/.*' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
-cosign verify-attestation ghcr.io/valqore/engine:1.17.0 --type spdxjson \
+cosign verify-attestation ghcr.io/valqore/engine:1.18.0 --type spdxjson \
   --certificate-identity-regexp 'https://github.com/valqore/valqore-engine/.*' \
   --certificate-oidc-issuer https://token.actions.githubusercontent.com
 ```
