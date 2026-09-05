@@ -1,7 +1,7 @@
 {
   "valqore_evidence_bundle": "1",
-  "engine_version": "1.18.0",
-  "ruleset_hash": "sha256:6eeb54c93a4d2274f03cc3642b24d0b36f9123140de088db327aa148e8efccfb",
+  "engine_version": "1.19.0",
+  "ruleset_hash": "sha256:03dc5921c6ccfa5185d475cd75ac38b09e19f00c29229ecf690e7954479b617e",
   "inputs": {
     "manifests": [
       {
@@ -1130,6 +1130,24 @@
       "resource_id": "demo/payment-api",
       "outcome": "PASS",
       "severity": "HIGH"
+    },
+    {
+      "rule_id": "AIG-186",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-187",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
+    },
+    {
+      "rule_id": "AIG-188",
+      "resource_id": "demo/payment-api",
+      "outcome": "PASS",
+      "severity": "MEDIUM"
     },
     {
       "rule_id": "CC-001",
@@ -3323,8 +3341,8 @@
     }
   },
   "summary": {
-    "total": 514,
-    "passed": 413,
+    "total": 517,
+    "passed": 416,
     "warnings": 57,
     "failures": 35,
     "errors": 0,
@@ -3335,7 +3353,7 @@
     "kind": "kubernetes",
     "label": "pod.yaml"
   },
-  "created_at": "2026-09-04T00:31:23.383305+00:00",
-  "content_hash": "sha256:2cda913e9aa1b155bda8be9c5380029dbc0bdede21fdffbd123d02a379c54c11",
+  "created_at": "2026-09-05T21:00:07.065660+00:00",
+  "content_hash": "sha256:3865d49d03434ec0a3f47af1bdf6a20a21c79c1f0880b9395bef6923986dde6b",
   "signature": ""
 }

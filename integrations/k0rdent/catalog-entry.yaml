@@ -26,7 +26,7 @@ description: >
   and air-gapped — nothing about your infrastructure leaves your environment,
   which matters for the sovereign and GPU clouds k0rdent provisions.
 highlights:
-  - 1,428 deterministic rules across security, cost, carbon, compliance, AI governance
+  - 1,431 deterministic rules across security, cost, carbon, compliance, AI governance
   - AI-agent fleet governance — discover shadow agents, delegation cycles, fleet score
   - 19 compliance packs incl. FedRAMP, EU AI Act, ISO 42001, CRA, PQC (CNSA 2.0)
   - Reproducible evidence — any bundle re-runs to byte-identical results (valqore verify)
